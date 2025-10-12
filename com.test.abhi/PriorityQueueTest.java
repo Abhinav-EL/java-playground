@@ -2,6 +2,7 @@ import java.util.PriorityQueue;
 
 /**
  * PQ tests to see how traversal happens. PQ only keep tracks of the biggest/smallest element at the root.
+ * So the sequential traversal will give results usually in insertion order.
  * https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html
  */
 public class PriorityQueueTest{

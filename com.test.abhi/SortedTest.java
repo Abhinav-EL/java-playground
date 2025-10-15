@@ -20,7 +20,7 @@ public class SortedTest {
     
     /**
      * TreeMap sorts the map based on natural ordering of elements.
-     * Duplicate Key has it's valeye replaced.
+     * Duplicate Key has it's value replaced.
      */
     private void testSortedMap(){
         SortedMap<String, Integer> map = new TreeMap<String, Integer>();

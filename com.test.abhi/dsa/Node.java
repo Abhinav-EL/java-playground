@@ -1,3 +1,4 @@
+package dsa;
 public class Node implements Comparable<Node>{
     public Integer key;
     public String value;

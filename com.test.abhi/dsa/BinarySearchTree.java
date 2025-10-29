@@ -1,3 +1,4 @@
+package dsa;
 
 public class BinarySearchTree {
     Node root;
@@ -11,17 +12,6 @@ public class BinarySearchTree {
         //System.out.println("Root: "+root);
     }
 
-    private Node put(Node prevNode, Node newNode){
-        if(prevNode == null)
-            return newNode;
-        int cmp = prevNode.compareTo(newNode);
-        if(cmp>0) prevNode.left = put(prevNode.left, newNode);
-        else if(cmp<0) prevNode.right = put(prevNode.right, newNode);
-        else prevNode = newNode;
-
-        return prevNode;
-    }
-
     public Node get(int key){
         Node node = root;
         while(node!=null){
@@ -32,7 +22,17 @@ public class BinarySearchTree {
         }
         return null;
     }
-    
+
+    private Node put(Node prevNode, Node newNode){
+        if(prevNode == null)
+            return newNode;
+        int cmp = prevNode.compareTo(newNode);
+        if(cmp>0) prevNode.left = put(prevNode.left, newNode);
+        else if(cmp<0) prevNode.right = put(prevNode.right, newNode);
+        else prevNode = newNode;
+
+        return prevNode;
+    }
 
     public static void main(String[] args){
         Node node1 = new Node(5, "A");

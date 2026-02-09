@@ -9,9 +9,9 @@ public class ScratchPad {
     
     public static void main(String[] args) {
         //MaxRainWater();
-        //StringPerumtation();
+        StringPerumtation();
         //slidingWindow();
-        ListDiff();
+        //ListDiff();
     }
 
     /**
@@ -48,6 +48,9 @@ public class ScratchPad {
         
     }
 
+    /**
+     * Removes even the duplicates
+     */
     private static void ListDiff(){
         List<Integer> list = new LinkedList<>();
         list.add(7);
@@ -59,6 +62,7 @@ public class ScratchPad {
         List<Integer> list2 = new LinkedList<>();
         list2.add(3);
         list2.add(4);
+        list2.add(4);
 
         list.removeAll(list2);
 
@@ -69,7 +73,7 @@ public class ScratchPad {
 
     /**
      * What's the datatype? Length of the LinkedList?
-     * What do return?
+     * What to return?
      */
     private static void removeDuplicates(){
         

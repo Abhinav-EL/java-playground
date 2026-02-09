@@ -7,21 +7,6 @@ public class BinarySearchTree {
         Node node = new Node(key, value);
         root = put(root, node);
     }
-    public void put(Node node){
-        root = put(root, node);
-        //System.out.println("Root: "+root);
-    }
-
-    public Node get(int key){
-        Node node = root;
-        while(node!=null){
-            int cmp = node.key.compareTo(key);
-            if(cmp>0) node = node.left;
-            if(cmp<0) node = node.right;
-            else return node;
-        }
-        return null;
-    }
 
     private Node put(Node prevNode, Node newNode){
         if(prevNode == null)
@@ -34,25 +19,30 @@ public class BinarySearchTree {
         return prevNode;
     }
 
-    public static void main(String[] args){
-        Node node1 = new Node(5, "A");
-        Node node2 = new Node(15, "B");
-        Node node3 = new Node(25, "C");
-        Node node4 = new Node(50, "D");
-        Node node5 = new Node(-5, "E");
+    public String get(int key){
+        Node node = root;
+        while(node!=null){
+            int cmp = node.key.compareTo(key);
+            if(cmp>0) node = node.left;
+            if(cmp<0) node = node.right;
+            else return node.value;
+        }
+        return null;
+    }
 
+    public static void main(String[] args){
         BinarySearchTree bst = new BinarySearchTree();
         //put
-        bst.put(node1);
-        bst.put(node2);
-        bst.put(node3);
-        bst.put(node5);
-        // Not putting node4
+        bst.put(5, "A");
+        bst.put(15, "B");
+        bst.put(25, "C");
+        bst.put(-5, "E");
         //get
-        Node returned = bst.get(25);
+        String returned = bst.get(25);
         assert(returned!=null);
-        assert(returned.value=="C");
+        assert(returned.equals("C"));
         assert(bst.get(50)==null);
 
+        System.out.println("C returned: "+returned);
     }
 }

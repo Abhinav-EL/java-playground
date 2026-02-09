@@ -32,19 +32,19 @@ public class PriorityQueueTest{
      */
     private void testOrderedClass(){
         PriorityQueue<OrderedClass> queue = new PriorityQueue<OrderedClass>();
-        queue.offer(new OrderedClass("b", 10));
+        queue.offer(new OrderedClass("B", 10));
         queue.offer(new OrderedClass("z", 30));
         queue.offer(new OrderedClass("a", 50));
-        queue.offer(new OrderedClass("c", -1));
+        queue.offer(new OrderedClass("C", -1));
         
         for(OrderedClass e : queue){
-            System.out.println("Value: "+ e);
+            System.out.println("Without any order: "+ e);
         }
 
-        System.out.println("Value should be a : "+ queue.poll());
-        System.out.println("Value should be b :  "+ queue.poll());
-        System.out.println("Value should be c : "+ queue.poll());
-        System.out.println("Value should be z : "+ queue.poll());
+        System.out.println("Expect a : "+ queue.poll());
+        System.out.println("Expect B :  "+ queue.poll());
+        System.out.println("Expect C : "+ queue.poll());
+        System.out.println("Expect z : "+ queue.poll());
     }
 
     private class OrderedClass implements Comparable<OrderedClass>{
@@ -58,11 +58,11 @@ public class PriorityQueueTest{
 
         public int compareTo(OrderedClass otherObj){
             // Confirm that o is type of OrderedClas
-            return this.key.compareTo(otherObj.key);
+            return this.key.compareToIgnoreCase(otherObj.key);
         }
 
         public String toString(){
-            return this.key +" - " + this.val;
+            return this.key +", " + this.val;
         }
     }
 }

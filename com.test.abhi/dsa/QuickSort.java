@@ -11,22 +11,22 @@ public class QuickSort {
    }
     
     static void sort(int[] a, int lo, int hi){
+        if(hi<=lo) return;
         int k = partition(a, lo, hi);
-        partition(a, lo, k-1);
-        partition(a, k+1, hi);
+        sort(a, lo, k-1);
+        sort(a, k+1, hi);
     }
 
     static int partition(int[] a, int lo, int hi){
-        int k = lo;
-        int i = k;
+        int i = lo;
         int j = hi+1;
 
         while(true){
-            while(++i<hi){
-                if(a[i]>a[k]) break;
+            while(a[++i]<a[lo]){
+                if(i ==hi) break;
             }
-            while(--j>lo && a[j]>a[k]){
-                if(a[j]<a[k]) break;
+            while(a[--j]>a[lo]){
+                if(j==lo) break;
             }
 
             if(i>=j){
@@ -36,7 +36,7 @@ public class QuickSort {
             swap(a, i, j);
             
         }
-        swap(a, k, j);
+        swap(a, lo, j);
         return j;
     }
 

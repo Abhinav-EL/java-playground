@@ -41,10 +41,10 @@ public class PriorityQueueTest{
             System.out.println("Without any order: "+ e);
         }
 
-        System.out.println("Expect a : "+ queue.poll());
-        System.out.println("Expect B :  "+ queue.poll());
-        System.out.println("Expect C : "+ queue.poll());
-        System.out.println("Expect z : "+ queue.poll());
+        System.out.println("Expect C : "+ queue.remove());
+        System.out.println("Expect B :  "+ queue.remove());
+        System.out.println("Expect z : "+ queue.remove());
+        System.out.println("Expect a : "+ queue.remove());
     }
 
     private class OrderedClass implements Comparable<OrderedClass>{
@@ -58,7 +58,7 @@ public class PriorityQueueTest{
 
         public int compareTo(OrderedClass otherObj){
             // Confirm that o is type of OrderedClas
-            return this.key.compareToIgnoreCase(otherObj.key);
+            return this.val.compareTo(otherObj.val);
         }
 
         public String toString(){
